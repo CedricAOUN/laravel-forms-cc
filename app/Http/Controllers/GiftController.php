@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GiftPostRequest;
 use App\Models\Gift;
 use Illuminate\Http\Request;
 
@@ -23,14 +24,9 @@ class GiftController extends Controller
         return view('gifts.create');
     }
 
-    function store(Request $request)
+    function store(GiftPostRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:50|min:3',
-            'price' => 'required|decimal:0,2|min:0',
-            'details' => 'nullable|string',
-            'url' => 'nullable|string|url:http,https',
-        ]);
+        $validated = $request->validated();
 
         Gift::create($validated);
 
@@ -42,14 +38,9 @@ class GiftController extends Controller
         return view('gifts.edit', ['gift' => $gift]);
     }
 
-    function update(Request $request, Gift $gift)
+    function update(GiftPostRequest $request, Gift $gift)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:50|min:3',
-            'price' => 'required|decimal:0,2|min:0',
-            'details' => 'nullable|string',
-            'url' => 'nullable|string|url:http,https',
-        ]);
+        $validated = $request->validated();
 
         $gift->update($validated);
 
