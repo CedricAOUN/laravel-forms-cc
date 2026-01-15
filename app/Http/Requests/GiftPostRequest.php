@@ -28,4 +28,17 @@ class GiftPostRequest extends FormRequest
             'url' => 'nullable|string|url:http,https',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Name is required.',
+            'name.min' => 'Mininum of 3 characters needed for the name.',
+            'name.max' => 'Maximum of 50 characters allowed for the name.',
+            'price.required' => 'Price is required.',
+            'price.decimal' => 'The price cannot exceed 2 decimal places. (e.g., 19.99)',
+            'price.min' => 'The price must be greater than or equal to 0.',
+            'url.url' => 'Please enter a valid URL (must start with http or https).',
+        ];
+    }
 }
