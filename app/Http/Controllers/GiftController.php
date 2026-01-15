@@ -31,7 +31,7 @@ class GiftController extends Controller
 
         Gift::create($validated);
         Mail::raw("Le cadeau {$validated['name']} a bien été ajouté ({$validated['price']} $)", function ($message) {
-            $message->to('test@example.com')->subject('Nouveau Cadeau Ajouté');
+            $message->to('cedric.j.aoun@gmail.com')->subject('Nouveau Cadeau Ajouté');
         });
 
         return redirect('/');
