@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('gifts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url');
-            $table->text('details');
+            $table->string('url')->nullable();
+            $table->text('details')->nullable();
             $table->decimal('price', 8, 2);
             $table->timestamps();
         });

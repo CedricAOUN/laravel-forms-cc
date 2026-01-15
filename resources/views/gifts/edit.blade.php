@@ -29,7 +29,7 @@
         <textarea id="details" name="details">{{ old('details', $gift->details) }}</textarea>
     </div>
     <div>
-        <label for="url">Gift Image:</label>
+        <label for="url">Gift URL:</label>
         <input type="text" id="url" name="url" value="{{ old('url', $gift->url) }}" />
     </div>
     <button type="submit">Update Gift</button>
