@@ -21,7 +21,7 @@
     </div>
     <div>
         <label for="price">Price (USD):</label>
-        <input type="number" id="price" name="price" value="{{ old('price') }}" required />
+        <input type="number" step="any" id="price" name="price" value="{{ old('price') }}" required />
     </div>
     <div>
         <label for="details">Details:</label>
